@@ -1,0 +1,687 @@
+{
+  "contractName": "Writer",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "writeVal",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function",
+      "signature": "0x1b127668"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b5061014a806100206000396000f3fe608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631b12766814610046575b600080fd5b34801561005257600080fd5b5061005b61005d565b005b60006032905060006104d290506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16639c0e3f7a83836040518363ffffffff167c01000000000000000000000000000000000000000000000000000000000281526004018083815260200182815260200192505050600060405180830381600087803b15801561010257600080fd5b505af1158015610116573d6000803e3d6000fd5b50505050505056fea165627a7a723058204f2db22a4d2115e37f11988b6ea12484620e0dfe015959126b53ea4617dcda190029",
+  "deployedBytecode": "0x608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631b12766814610046575b600080fd5b34801561005257600080fd5b5061005b61005d565b005b60006032905060006104d290506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16639c0e3f7a83836040518363ffffffff167c01000000000000000000000000000000000000000000000000000000000281526004018083815260200182815260200192505050600060405180830381600087803b15801561010257600080fd5b505af1158015610116573d6000803e3d6000fd5b50505050505056fea165627a7a723058204f2db22a4d2115e37f11988b6ea12484620e0dfe015959126b53ea4617dcda190029",
+  "sourceMap": "68:229:5:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;68:229:5;;;;;;;",
+  "deployedSourceMap": "68:229:5:-;;;;;;;;;;;;;;;;;;;;;;;;159:135;;8:9:-1;5:2;;;30:1;27;20:12;5:2;159:135:5;;;;;;;194:14;211:2;194:19;;222:10;235:4;222:17;;250:12;;;;;;;;;;;:18;;;269:9;280:5;250:36;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;250:36:5;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;250:36:5;;;;159:135;;:::o",
+  "source": "pragma solidity ^0.5.0;\r\n\r\nimport \"../contracts/Lighthouse.sol\";\r\n\r\ncontract Writer {\r\n\r\n    Lighthouse myLighthouse;\r\n\r\n//pass lighthouse address, value\r\n    function writeVal() public{\r\n      uint dataValue = 50;\r\n      uint nonce = 1234;\r\n\r\n      myLighthouse.write(dataValue, nonce);\r\n    }\r\n}\r\n\r\n/*\r\n  1) How do I get an account to call a function? I want my deploying account on ganache to call lighthouse.changeauth(writer)\r\n  upon deploying the Writer\r\n\r\n  2) Should the writer interface with ILighthouse? If so, we will need to expose the write() function in the interface\r\n\r\n  3) For a user to do local testing, I assume they will\r\n      Deploy a Lighthouse\r\n      Deploy an oracle, pass it lighthouse address, so it can send data to Lighthouse (writer)\r\n      Authorize the oracle by changing auth from deploying account to oracle (need oracle deployed address)\r\n      Deploy their smart contract, pass it lighthouse address, so it can get information from lighthouse and do stuff\r\n\r\n      I will put all of these commands into a script that executes when a user types \"truffle setupLighthouse\"\r\n      Thus to do local testing, users will write their code, type truffle migrate, truffle setupLighthouse, truffle test\r\n\r\n\r\n*/\r\n",
+  "sourcePath": "/home/jacky/Dropbox/Rhombus/GoldShop/contracts/Writer.sol",
+  "ast": {
+    "absolutePath": "/home/jacky/Dropbox/Rhombus/GoldShop/contracts/Writer.sol",
+    "exportedSymbols": {
+      "Writer": [
+        637
+      ]
+    },
+    "id": 638,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 614,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:5"
+      },
+      {
+        "absolutePath": "/home/jacky/Dropbox/Rhombus/GoldShop/contracts/Lighthouse.sol",
+        "file": "../contracts/Lighthouse.sol",
+        "id": 615,
+        "nodeType": "ImportDirective",
+        "scope": 638,
+        "sourceUnit": 556,
+        "src": "27:37:5",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 637,
+        "linearizedBaseContracts": [
+          637
+        ],
+        "name": "Writer",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 617,
+            "name": "myLighthouse",
+            "nodeType": "VariableDeclaration",
+            "scope": 637,
+            "src": "93:23:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_Lighthouse_$555",
+              "typeString": "contract Lighthouse"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 616,
+              "name": "Lighthouse",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 555,
+              "src": "93:10:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Lighthouse_$555",
+                "typeString": "contract Lighthouse"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 635,
+              "nodeType": "Block",
+              "src": "185:109:5",
+              "statements": [
+                {
+                  "assignments": [
+                    621
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 621,
+                      "name": "dataValue",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 635,
+                      "src": "194:14:5",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 620,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "194:4:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 623,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "hexValue": "3530",
+                    "id": 622,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "211:2:5",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_50_by_1",
+                      "typeString": "int_const 50"
+                    },
+                    "value": "50"
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "194:19:5"
+                },
+                {
+                  "assignments": [
+                    625
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 625,
+                      "name": "nonce",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 635,
+                      "src": "222:10:5",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 624,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "222:4:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 627,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "hexValue": "31323334",
+                    "id": 626,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "235:4:5",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_1234_by_1",
+                      "typeString": "int_const 1234"
+                    },
+                    "value": "1234"
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "222:17:5"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 631,
+                        "name": "dataValue",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 621,
+                        "src": "269:9:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 632,
+                        "name": "nonce",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 625,
+                        "src": "280:5:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 628,
+                        "name": "myLighthouse",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 617,
+                        "src": "250:12:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Lighthouse_$555",
+                          "typeString": "contract Lighthouse"
+                        }
+                      },
+                      "id": 630,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "write",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 554,
+                      "src": "250:18:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256,uint256) external"
+                      }
+                    },
+                    "id": 633,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "250:36:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 634,
+                  "nodeType": "ExpressionStatement",
+                  "src": "250:36:5"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 636,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "writeVal",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 618,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "176:2:5"
+            },
+            "returnParameters": {
+              "id": 619,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "185:0:5"
+            },
+            "scope": 637,
+            "src": "159:135:5",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 638,
+        "src": "68:229:5"
+      }
+    ],
+    "src": "0:1237:5"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/jacky/Dropbox/Rhombus/GoldShop/contracts/Writer.sol",
+    "exportedSymbols": {
+      "Writer": [
+        637
+      ]
+    },
+    "id": 638,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 614,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:5"
+      },
+      {
+        "absolutePath": "/home/jacky/Dropbox/Rhombus/GoldShop/contracts/Lighthouse.sol",
+        "file": "../contracts/Lighthouse.sol",
+        "id": 615,
+        "nodeType": "ImportDirective",
+        "scope": 638,
+        "sourceUnit": 556,
+        "src": "27:37:5",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 637,
+        "linearizedBaseContracts": [
+          637
+        ],
+        "name": "Writer",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 617,
+            "name": "myLighthouse",
+            "nodeType": "VariableDeclaration",
+            "scope": 637,
+            "src": "93:23:5",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_Lighthouse_$555",
+              "typeString": "contract Lighthouse"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 616,
+              "name": "Lighthouse",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 555,
+              "src": "93:10:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Lighthouse_$555",
+                "typeString": "contract Lighthouse"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 635,
+              "nodeType": "Block",
+              "src": "185:109:5",
+              "statements": [
+                {
+                  "assignments": [
+                    621
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 621,
+                      "name": "dataValue",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 635,
+                      "src": "194:14:5",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 620,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "194:4:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 623,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "hexValue": "3530",
+                    "id": 622,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "211:2:5",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_50_by_1",
+                      "typeString": "int_const 50"
+                    },
+                    "value": "50"
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "194:19:5"
+                },
+                {
+                  "assignments": [
+                    625
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 625,
+                      "name": "nonce",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 635,
+                      "src": "222:10:5",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 624,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "222:4:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 627,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "hexValue": "31323334",
+                    "id": 626,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "235:4:5",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_1234_by_1",
+                      "typeString": "int_const 1234"
+                    },
+                    "value": "1234"
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "222:17:5"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 631,
+                        "name": "dataValue",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 621,
+                        "src": "269:9:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 632,
+                        "name": "nonce",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 625,
+                        "src": "280:5:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 628,
+                        "name": "myLighthouse",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 617,
+                        "src": "250:12:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Lighthouse_$555",
+                          "typeString": "contract Lighthouse"
+                        }
+                      },
+                      "id": 630,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "write",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 554,
+                      "src": "250:18:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256,uint256) external"
+                      }
+                    },
+                    "id": 633,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "250:36:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 634,
+                  "nodeType": "ExpressionStatement",
+                  "src": "250:36:5"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 636,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "writeVal",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 618,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "176:2:5"
+            },
+            "returnParameters": {
+              "id": 619,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "185:0:5"
+            },
+            "scope": 637,
+            "src": "159:135:5",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 638,
+        "src": "68:229:5"
+      }
+    ],
+    "src": "0:1237:5"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
+  },
+  "networks": {
+    "1547755301491": {
+      "events": {},
+      "links": {},
+      "address": "0x9A5CfD7785D1c0553571EE8Cbb9644c6fFe711cb",
+      "transactionHash": "0x5f39f4d4f269ef64682a506e91a2bd5e0890e66a545087e9d8410dd919a8c611"
+    },
+    "1547844158462": {
+      "events": {},
+      "links": {},
+      "address": "0x0c7987275025c45F1608c8ef3460b1fd3EC88087",
+      "transactionHash": "0x3a97eadce37e20f9020bcd5b6de8d48f5d822ab64be77c907b817acd01c19081"
+    },
+    "1547849341770": {
+      "events": {},
+      "links": {},
+      "address": "0x0cD00926a15072FAc55c8739D29663409B443B63",
+      "transactionHash": "0x54d950d7f917b86bfb043dac7f38a8321ccf19d5726fc6e668f81b623137b63a"
+    },
+    "1548094989350": {
+      "events": {},
+      "links": {},
+      "address": "0xDe855Cc27f2bbAe3012cB997bffe854Ad0c487b4",
+      "transactionHash": "0xd7efecec300a9203653ef5cb663781992e25f2a5bd1323c8e3d585c2885306e6"
+    },
+    "1548098003658": {
+      "events": {},
+      "links": {},
+      "address": "0x530791CE888CB6B5Dc701188cbeDf1A8A108e785",
+      "transactionHash": "0x82b5b64a971969913ad224d007f7aca4f109c707bc537b234b36613a1f37262a"
+    },
+    "1548116679781": {
+      "events": {},
+      "links": {},
+      "address": "0xAAC340C8d60625d8Fa7D617A41eD95377d47dcCc",
+      "transactionHash": "0xe63a90cb77730ec51d32fc936a47d4a4e3abadddb135cf51c6698dc7561a6941"
+    }
+  },
+  "schemaVersion": "3.0.1",
+  "updatedAt": "2019-01-22T00:24:55.173Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
